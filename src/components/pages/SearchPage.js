@@ -18,6 +18,7 @@ class SearchPage extends Component{
                 <div className="ui segment">
                     <form className="ui form" onSubmit={this.handleFormSubmit}>
                         <input 
+                            type="text"
                             value={this.state.term}
                             onChange={(e)=>this.setState({
                                 term:e.target.value,
