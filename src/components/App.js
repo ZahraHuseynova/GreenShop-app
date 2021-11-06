@@ -14,9 +14,9 @@ const App=()=>{
                 <Header/>
                 <Switch>
                     <Route path="/" component={MainPage} exact/>
-                    <Route path="/pages/product/:id" component={ProductDetail} exact/>
-                    <Route path="/pages/search/:id" component={SearchPage} exact/>
-                    <Route path="/pages/cart" component={CartPage} exact/>
+                    <Route path="/products/product/:id" component={ProductDetail} exact/>
+                    <Route path="/products/search/:id" component={SearchPage} exact/>
+                    <Route path="/products/cart" component={CartPage} exact/>
                 </Switch>
                 <Footer/>
             </Router>

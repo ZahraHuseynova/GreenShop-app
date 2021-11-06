@@ -1,0 +1,9 @@
+{
+    "products":[],
+    "images":{
+        "baseUrl":"http://api.unsplash.com",
+        "headers":{
+            "Authorization":"Client-ID xJupabMeSKorDfV-NXMyjtLoABVMFjJUC4AyHmV6Rb8"
+        }
+    }
+}
