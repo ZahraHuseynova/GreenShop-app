@@ -1,29 +1,21 @@
 import React,{ Component } from "react";
 import {connect} from "react-redux";
 import unsplash from "../api/unsplash";
-import SearchPage from "./SearchPage";
 import ProductDetail from "./ProductDetail"
+import {fetchProducts} from "../../actions/index"
 
 
 class Main extends Component {
 
-    state={images:[],
-            image:null    
-    };
-
     componentDidMount(){
-        this.onTermSubmit("plants")
-    };
+        this.props.fetchProducts();
+        this.onSearchSubmit("plants")
+    }
+
 
     onSearchSubmit = async (term)=>{
         const response = await unsplash.get("/search/photos",{
             params:{query:term},
-        });
-
-        this.setState({
-            images:response.data.results,
-            image:response.data.results[0],
-            
         });
     }
 
@@ -31,17 +23,29 @@ class Main extends Component {
         this.setState({image});
     };
 
+    renderList(){
+        return this.props.fetchProducts.map((product)=>{
+            return(
+                <div className="ui four column grid">
+                    <div className="column">
+                        <div className="ui segment">
+                            <div className="item" key={product.id}>
+                                {this.onSearchSubmit}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+    }
+
     render(){
         return(
             <div className="ui container">
-                <SearchPage onSubmit={this.onSearchSubmit}/>
                 <div className="ui grid">
                     <div className="ui row">
                         <div className="eleven wide column">
-                        <ProductDetail 
-                        images={this.state.images} 
-                        image={this.state.image} 
-                        onImageSelect={this.onImageSelect}/>
+                        <ProductDetail/>
                         </div>
                     </div>
                 </div>

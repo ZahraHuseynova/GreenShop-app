@@ -9,7 +9,7 @@ import {
     PRODUCT_FAILED
 } from "./types";
 import products from "../components/api/unsplash";
-import history from "history";
+import history from "../history";
 
 
 export const signIn = (userId)=>{

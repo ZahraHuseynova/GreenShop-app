@@ -13,4 +13,18 @@ export const productsReducer = (state={},action)=>{
         default:
             return state;
     }
+};
+
+export const Products=(state={
+    isLoading:true,
+    errMess:null,
+    products:[]},action)=>{
+       switch(action.type){
+        case PRODUCT_LOADING:
+            return {...state,isLoading:true,errMess:null,products:[]};
+        case PRODUCT_FAILED:
+            return{...state,isLoading:false,errMess:action.payload,products:[]};
+        default:
+            return state;
+    }
 }
